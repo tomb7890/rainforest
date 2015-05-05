@@ -2,8 +2,6 @@ class ReviewsController < ApplicationController
 before_filter :load_product
 before_filter :ensure_logged_in, only: [:create, :destroy]
 
-
-
   def show
     @review = Review.find(params[:id])
   end
@@ -27,16 +25,12 @@ before_filter :ensure_logged_in, only: [:create, :destroy]
     else
       render 'products/show'
     end
-
-
   end
 
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
   end
-
-
 
   private
   def review_params
