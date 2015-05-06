@@ -6,13 +6,13 @@ class ProductsController < ApplicationController
       Product.all
     end
 
-    if request.xhr?
-      render @products
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 
   def show
-    # @product = Product.find(params[:id])
     @product = Product.find(params[:id])
 
     if current_user
