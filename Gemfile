@@ -45,5 +45,7 @@ group :development, :test do
   gem 'rails_layout'
 end
 
+gem 'kaminari'
+
 gem 'zurb-foundation'
 gem 'foundation-rails'
