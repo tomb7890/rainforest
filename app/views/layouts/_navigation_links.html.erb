@@ -1,12 +1,24 @@
 <%# add navigation links to this file %>
 <ul class="right">
-  <li class="divider"></li>
-  <li><%= link_to "Browse Products", products_path %></li>
-  <li class="divider"></li>
-  <li><%= link_to "Price List" %></li>
-  <li class="divider"></li>
-  <li><%= link_to "Contact Us" %></li>
-  <li class="divider"></li>
-  <li><%= link_to "Cart" %></li>
-</ul>
+  <li class="has-dropdown">
 
+    <% if current_user %>
+      <a href="#"> <%=  current_user.name  %></a>
+    <% else %>
+      <%= link_to "Log in", new_session_path %> 
+    <% end %>
+    <ul class="dropdown">
+
+
+      <% if current_user %>
+
+        <li><%= link_to "Log out", session_path("current"), :method => :delete %></li>
+      <% else %>
+
+        <li><%= link_to "Log in", new_session_path %> </li>
+        <li><%= link_to "Sign up", new_user_path %> </li>
+        
+      <% end %>
+    </ul>
+  </li>
+</ul>
