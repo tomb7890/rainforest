@@ -7,7 +7,10 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
   test "should get show" do
-    get :show
+    #                   product GET    /products/:id(.:format)         products#show
+    product = products(:one)
+
+    get product_path
     assert_response :success
   end
 
@@ -17,7 +20,7 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    get :edit
+    get edit_product_path(23)
     assert_response :success
   end
 
