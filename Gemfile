@@ -51,3 +51,5 @@ gem 'web-console', '~> 2.0', group: :development
 
 gem 'zurb-foundation'
 gem 'foundation-rails', '5.5.3.2'
+gem 'bootsnap'
+gem 'listen'
