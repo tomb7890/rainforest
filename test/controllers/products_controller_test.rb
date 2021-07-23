@@ -1,5 +1,4 @@
 require 'test_helper'
-
 class ProductsControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
@@ -7,10 +6,8 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
   test "should get show" do
-    #                   product GET    /products/:id(.:format)         products#show
     product = products(:one)
-
-    get product_path
+    get :show, params: { id: product.id  }
     assert_response :success
   end
 
@@ -20,7 +17,8 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    get edit_product_path(23)
+    product = products(:one)
+    get :edit, params: { id: product.id }
     assert_response :success
   end
 
