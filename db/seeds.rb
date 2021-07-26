@@ -1,29 +1,35 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+require 'csv'
+data=CSV.read("data/jcpenney_com-ecommerce_sample.csv", headers: true)
 
+def create_a_user
+  User.create!({
+                 email: "jcpenny.shopper@example.com",
+                 name: "Susie McDonald",
+                 password: "pass",
+                 password_confirmation: "pass"
+               }
+              )
+end
 
-User.destroy_all
-Product.destroy_all
+index = 0
+while true
+  index = index + 1
 
-User.create!({
-  email: "example@bitmakerlabs.com",
-  name: "Example User",
-  password: "pass",
-  password_confirmation: "pass"
-  }
-)
+  unless data[index]['name_title'].blank? ||
+         data[index]['description'].blank? ||
+         data[index]['list_price'].blank?
 
-100.times do |i|
+    unless Product.find_by(description: data[index]['description'])
+      Product.create({
+                       name: data[index]['name_title'],
+                       description: data[index]['description'],
+                       price_in_cents: data[index]['list_price'].to_i * 100
+                     }
+                    )
+    end
 
-Product.create({
-  name: "Product#{i}",
-  description: "Description#{i}",
-  price_in_cents: i
-  }
-)
+    if Product.all.size > 300
+      break
+    end
+  end
 end
