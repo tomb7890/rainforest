@@ -7,7 +7,7 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should get create" do
-    get :create
+    post  :create, params: { :user => {:email => "Lorem", :password_digest => "Ipsum dolor sit."} }
     assert_response :success
   end
 
