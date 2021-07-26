@@ -7,13 +7,13 @@ class SessionsControllerTest < ActionController::TestCase
   end
 
   test "should get create" do
-    get :create
+    post :create
     assert_response :success
   end
 
   test "should get destroy" do
-    get destroy_path
-    assert_response :success
+    delete :destroy, params: { id: 1 }
+    assert_redirected_to products_path
   end
 
 end
