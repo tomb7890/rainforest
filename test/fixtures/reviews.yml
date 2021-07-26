@@ -6,6 +6,6 @@ one:
   user_id: 1
 
 two:
-  comment: MyText
+  comment: "This is a great review of a lousy product. Don't buy it. "
   product_id: 1
   user_id: 1
