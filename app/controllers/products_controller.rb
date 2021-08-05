@@ -33,6 +33,10 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
 
+    unless current_user.nil?
+      @product.owner = current_user
+    end
+
     if @product.save
       redirect_to products_url
     else
