@@ -35,6 +35,14 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem 'web-console', '~> 2.0'
+end
+
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'pry'
@@ -50,7 +58,7 @@ gem 'kaminari'
 
 # Access an IRB console on exception pages or by using <%= console %> in views
 
-gem 'web-console', '~> 2.0', group: :development
+
 
 gem 'zurb-foundation'
 gem 'foundation-rails', '5.5.3.2'
