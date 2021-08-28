@@ -1,6 +1,22 @@
 <%= form_tag products_path, method: :get, authentication: false, id: 'search-form' do %>
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag "Search", :class => "button button-expand", :id => "products-search-button"  %>
+
+<div class="row">
+  <div class="large-12 columns">
+    <div class="row collapse">
+      
+      <div class="small-10 columns">
+	<%= text_field_tag :search, params[:search], class: 'right' %>
+      </div>
+
+      <div class="small-2 columns">
+	<%= submit_tag "Search", :class => "button postfix", :id => "products-search-button"  %>
+      </div>
+      
+    </div> <!-- row  -->
+  </div> <!-- small 8 columns  -->
+</div> <!-- row  -->
+
+
 <% end %>
 
 <div id="products">
