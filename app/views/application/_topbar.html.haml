@@ -1,0 +1,31 @@
+
+%nav.top-bar{"data-topbar" => ""}
+  %ul.title-area
+    %li.name
+      %h1
+        %a{:href => "#"}
+          =ApplicationVariables::Name::AppName
+    %li.toggle-topbar.menu-icon
+      %a{:href => "#"}
+        %span menu
+  %section.top-bar-section
+    %ul.right
+      %li.divider
+      %li.has-dropdown
+
+        - if current_user
+          %a{:href => "#"}
+            =current_user.email
+        - else
+          %a{:href => "#"}
+            Menu
+            
+        %ul.dropdown
+          - if current_user
+            %li
+              %a{:href => logout_path } Log out 
+          - else
+            %li
+              %a{:href => login_path } Log In 
+            %li
+              %a{:href => signup_path } Sign up
