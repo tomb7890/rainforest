@@ -24,6 +24,35 @@
 	.submit-button {
 	     @include button($full-width: true);
 	} 
+.create-or-edit-product-form {
+    @include panel();
+    @include grid-column(
+        $columns:10,
+        $center:true
+    );
+    @media #{$medium-up} {
+	width: $small-breakpoint / 2.0;
     }
-} 
+    .submit-button {
+	@include button($full-width: true);
+    } 
+}
+ 
 
+.create-or-edit-product-view {
+    padding: 2em;
+    @media #{$medium-up} {
+	padding: 10em;
+    }
+
+    
+    @include grid-column(
+        $columns:10,
+        $center:true
+    );
+    @media #{$medium-up} {
+	width: $small-breakpoint / 2.0;
+    }
+
+    
+}

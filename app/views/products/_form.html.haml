@@ -1,9 +1,8 @@
-= form_for(@product)   do |f|
+
+= form_for @product, html: {class: 'create-or-edit-product-form'}  do |f|
   - if @product.errors.any?
-
     .row
-      .large-12.columns.field
-
+      .columns
         #error_explanation
         %h2
           = pluralize(@product.errors.count, "error")
@@ -13,18 +12,18 @@
           %li= msg
 
   .row
-    .large-12.columns.field
+    .columns
       = f.label :name
       = f.text_field :name
   .row
-    .large-12.columns.field
+    .columns
       = f.label :description
       = f.text_area :description
   .row
-    .large-12.columns.field
+    .columns
       = f.label :price_in_cents
       = f.number_field :price_in_cents
   .row
-    .large-12.columns.field
-      .actions= f.submit submit_button_label,  { class: "button" }
+    .columns
+      .actions= f.submit submit_button_label, { class: "submit-button" }
 
