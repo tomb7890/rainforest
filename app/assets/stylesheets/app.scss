@@ -1,12 +1,14 @@
 @import "foundation";
 
+
 .login-and-signup-view {
     padding: 2em;
     @media #{$medium-up} {
 	padding: 10em;
     }
-    
-    .login-and-signup-box {
+
+    .new-user-form {
+
 	h3 {
 	    text-align: center;
 	}
@@ -23,7 +25,10 @@
 
 	.submit-button {
 	     @include button($full-width: true);
-	} 
+	}
+    }
+}
+
 .create-or-edit-product-form {
     @include panel();
     @include grid-column(

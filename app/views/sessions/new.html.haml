@@ -1,23 +1,20 @@
 .login-and-signup-view
   .row
-    .columns 
-      .login-and-signup-box
+    .columns
+      = form_tag sessions_path, :class => 'new-user-form' do
         .row
           .columns
-            = form_tag sessions_path do
-              .row
-                .columns
-                  %h3
-                    Log in
-              .row
-                .columns
-                  = label_tag :email
-                  = text_field_tag(:email, "", placeholder: "Email") 
-              .row
-                .columns
-                  = label_tag :password
-                  = password_field_tag(:password, "", placeholder: "Password")
-              .row
-                .columns
-                  = submit_tag "Log In" , class: "submit-button"
+            %h3
+              Log in
+        .row
+          .columns
+            = label_tag :email
+            = text_field_tag(:email, "", placeholder: "Email") 
+        .row
+          .columns
+            = label_tag :password
+            = password_field_tag(:password, "", placeholder: "Password")
+        .row
+          .columns
+            = submit_tag "Log In" , class: "submit-button"
 
