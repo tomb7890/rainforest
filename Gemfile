@@ -59,7 +59,7 @@ gem 'kaminari'
 # Access an IRB console on exception pages or by using <%= console %> in views
 
 
-
+gem 'faker'
 gem 'zurb-foundation'
 gem 'foundation-rails', '5.5.3.2'
 gem 'bootsnap'
