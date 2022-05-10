@@ -49,15 +49,5 @@
     @media #{$medium-up} {
 	padding: 10em;
     }
-
-    
-    @include grid-column(
-        $columns:10,
-        $center:true
-    );
-    @media #{$medium-up} {
-	width: $small-breakpoint / 2.0;
-    }
-
     
 }
