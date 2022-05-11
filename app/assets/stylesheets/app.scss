@@ -46,8 +46,13 @@
 
 .create-or-edit-product-view {
     padding: 2em;
+
     @media #{$medium-up} {
 	padding: 10em;
     }
+
+    .bottom-row{
+	text-align: center;
+    } 
     
 }
