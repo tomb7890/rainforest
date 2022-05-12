@@ -1,5 +1,6 @@
-<p><a href="/products/<%= product.id %>" >
-    <%= product.name %></a>, <%= product.description %>
+<p><a href="/products/<%= product.id %>" ><%= product.name %></a>
+
+  <%= product.description %>
 
   <div class="product-formatted-price">
     <%=  number_to_currency(product.formatted_price)  %>

@@ -2,41 +2,35 @@
 
 <%= form_tag products_path, method: :get, authentication: false, id: 'search-form' do %>
 
-<div class="products-search-bar row">
-  <div class="large-12 columns">
-    <div class="row collapse">
-      
-      <div class="small-10 columns">
-	<%= text_field_tag :search, params[:search], class: 'right' %>
-      </div>
+  <div class="products-search-bar">
+    <div class="search-box">
+      <%= text_field_tag :search, params[:search] %>
+    </div>
 
-      <div class="small-2 columns">
-	<%= submit_tag "Search", :class => "button postfix", :id => "products-search-button"  %>
-      </div>
-      
-    </div> <!-- row  -->
-  </div> <!-- small 8 columns  -->
-</div> <!-- row  -->
+    <div class="search-button">
+      <%= submit_tag "Search", :class => "button postfix", :id => "products-search-button"  %>
+    </div>
+  </div>
 
+  <% end %>
 
-<% end %>
+  <% if current_user %>
+  <%= link_to "New Product", "/products/new" %>
+  <% end %>
+
+  <hr />
 
 <div id="products">
   <%= render @products %>
 </div>
 
-<!-- renders a helpful message with numbers of displayed vs. total entries -->
+
+
 <h1><small><%= page_entries_info @products %></small></h1>
-
-
-<!-- <h1>Products (<%= @products.length %>)</h1> -->
-<%= link_to "New Product", "/products/new" %>
-
-
-<!-- outputs several pagination links such as « First ‹ Prev ... 2 3 4 5 6 7 8 9 10 ... Next › Last » -->
 <%= paginate @products %>
 
-<hr />
+
+</div>
 </div>
 
 

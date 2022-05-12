@@ -1,5 +1,26 @@
 @import "foundation";
 
+.products-search-bar  {
+    padding-top: 16px;
+    @include grid-row(
+
+    );
+	
+    .search-box {
+	@include grid-column(
+	    $collapse:true,
+	    $columns: 9
+	);
+    }
+
+    .search-button {
+	@include grid-column(
+	    $collapse:true,
+	    $columns: 3
+	);
+    }
+}
+
 
 .login-and-signup-view {
     padding: 2em;
@@ -42,7 +63,6 @@
 	@include button($full-width: true);
     } 
 }
- 
 
 .create-or-edit-product-view {
     padding: 2em;
