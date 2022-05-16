@@ -2,9 +2,7 @@
 
 .products-search-bar  {
     padding-top: 16px;
-    @include grid-row(
-
-    );
+    @include grid-row();
 	
     .search-box {
 	@include grid-column(
@@ -50,12 +48,47 @@
     }
 }
 
+.product {
+
+    padding-top: 1em;
+
+    .name {
+	font-size: 210%;
+	font-weight: bold;
+    }
+
+    .description {
+    }
+
+    .price {
+	font-size: rem-calc(16);
+    }
+
+}
+
+.product-review {
+    @include grid-row();
+
+    .container {
+	@include grid-column();
+	padding-top: 1em;
+
+	.authorship {
+	    font-size: 85%;
+	}
+
+	.review-text {
+	}
+    }
+} 
+
 .create-or-edit-product-form {
     @include panel();
     @include grid-column(
         $columns:10,
         $center:true
     );
+
     @media #{$medium-up} {
 	width: $small-breakpoint / 2.0;
     }
