@@ -12,33 +12,27 @@
 
 <% end %>
 
+<div class="product">
+  <div class="name"><%= @product.name %></div>
+  <div class="description"><%= @product.description %></div>
+</div>
+
+<hr>
+
+<div class="product price">
+  <%=  number_to_currency(@product.formatted_price)  %>
+</div>
+
+<hr>
+
+<h3>Customer Reviews</h3>
+
+<div id="review-list">
 
 
-<p><%= @product.name %>, <%= @product.description %>
+<%= render "reviews"  %>
 
-
-</p>
-
-<h4><%=  number_to_currency(@product.formatted_price)  %></h4>
-
-
-
- <h3>Reviews</h3>
-
-  <p>Reviews for <%= @product.name %></p>
-  <div id="review-list">
-      <% @product.reviews.each do |review| %>
-        <p class="review-text-paragraph">
-          <div class="review-text"> <%= review.comment %>  </div>
-
-              <br>
-              <% if review.user != nil %>
-                  <em> by <%= review.user.name %></em>
-                  Added on: <%= review.created_at %>
-              <% end %>
-          </p>
-      <% end %>
-  </div>
+</div> <!-- review list  -->
 
 
 <% if current_user %>
